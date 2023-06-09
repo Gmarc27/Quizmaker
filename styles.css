@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+
+}
+
+.logo {
+    color: #fff;
+    user-select: none;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #02F4E7;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+
+.navigation a:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+
+}
+
+.navigation .btnLoginPopup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    margin-left: 40px;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: .5s;
+}
+
+.navigation .btnLoginPopup:hover{
+    background: #fff;
+    color: #162938
+}
+
+.navigation .btnLogout {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    margin-left: 40px;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1em;
+    transition: .5s;
+}
+
+.navigation .btnLogout:hover{
+    background: #fff;
+    color: #162938
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid gray;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px #fff;
+    overflow: hidden;
+    transform: scale(0);
+    transition: height 0.5s;
+    transition: .8s ease;
+}
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 540px;
+}
+
+
+.wrapper .form-box.login{
+    transition: 1s ease;
+}
+
+.wrapper.active .form-box.login{
+    transform: translateX(-400px);
+}
+
+.wrapper.active-contact .form-box.login{
+    transform: translate(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: 1s ease;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    position: absolute;
+    transform: translateX(0);
+}
+
+.icon-close {
+    position: absolute;
+    top:5px;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.form-box.register .icon-close {
+    position: absolute;
+    top:15px;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-close:hover {
+    text-shadow: 0 0 10px #fff;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color:#fff;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top:50%; 
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: black;
+    text-shadow: 0 0 10px #fff;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .8em;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: black;
+    margin-right: 5px;
+}
+
+.remember-forgot a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.remember-forgot a:hover{
+    color:#02F4E7;
+    transition: 0.2s;
+    text-decoration: underline;
+}
+
+.remember-forgot.register label{
+    font-size: 1.8em;
+}
+
+.remember-forgot.register label input[type=checkbox]{
+
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #fff;
+    }
+.btn:hover{
+    box-shadow: 0 0 10px #fff;
+    transition: 0.3s;
+}
+
+.login-register{
+    font-size: .9em;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+}
+
+.login-register p{
+    margin: 15px 0 -15px;
+}
+
+.login-register a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.login-register a:hover{
+    color: #02F4E7;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+.form-box.contact {
+    position: absolute;
+    transform: translateX(-400px);
+}
+
+.wrapper.active-contact .contact{
+    transform: translateX(0px);
+    transition: 1s ease
+} 
+
+.wrapper.active-contact{
+    height: 400px;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+/***********************************************************************************************/
+
+
+.container{
+    margin-top: 30px;
+    height: 80vh;
+    width: 90%;
+    outline: 2px solid #162938;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #fff;
+    backdrop-filter: blur(20px);
+    color: #fff;
+    font-weight: 500;
+}
